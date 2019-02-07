@@ -1,17 +1,11 @@
-IF EXISTS DROP DATABASE massdrop-carousel;
-
-CREATE DATABASE massdrop-carousel;
-
 CREATE TABLE item (
-  id INT NOT NULL AUTO_INCREMENT,
-  item_name VARCHAR(255),
-  PRIMARY KEY (id)
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  item_name VARCHAR
 );
 
 CREATE TABLE images (
-  id INT NOT NULL AUTO_INCREMENT,
-  img_url VARCHAR(255),
-  item_id INT,
-  PRIMARY KEY(id),
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  img_url VARCHAR,
+  item_id INTEGER,
   FOREIGN KEY (item_id) REFERENCES item(id)
 );
