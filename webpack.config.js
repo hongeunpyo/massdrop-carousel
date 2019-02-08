@@ -2,19 +2,24 @@ const webpack = require('webpack');
 const path = require('path');
 
 const config = {
-  entry: './src/index.js',
+  entry: path.join(__dirname, '/client/index.jsx'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js'
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
+        include: path.join(__dirname, 'client/'),
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react']
+        }
       }
-    ]
+    ],
+
   },
   resolve: {
     extensions: [
@@ -22,9 +27,10 @@ const config = {
       '.jsx'
     ]
   },
-  devServer: {
-    contentBase: './dist'
-  }
+
+  // devServer: {
+  //   contentBase: './dist'
+  // }
 }
 
 module.exports = config;

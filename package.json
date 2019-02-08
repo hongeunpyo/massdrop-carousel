@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server-dev": "nodemon server/server.js",
+    "react-dev": "webpack -d --watch",
     "jest": "jest"
   },
   "repository": {
@@ -21,17 +22,22 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "bootstrap": "^4.2.1",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "faker": "^4.1.0",
+    "jquery": "^3.3.1",
     "morgan": "^1.9.1",
+    "popper.js": "^1.14.7",
     "react": "^16.7.0",
+    "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.7.0",
     "sqlite3": "^4.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "jest": "^24.1.0",
