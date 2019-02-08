@@ -15,10 +15,6 @@ var helpers = {
   generateRandomNumber: function() {
     return Math.floor((Math.random() * 16) + 5);
   },
-  generateOneOrTwo: function() {
-
-  }
-
 }
 
 module.exports = helpers;
