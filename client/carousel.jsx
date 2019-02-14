@@ -68,6 +68,7 @@ class ImageCarousel extends React.Component {
         this.setState({imgIndex: parseInt(index) + 1})
       }
     } else if (e.target.dataset.index) {
+      console.log(e.target.dataset.index);
       var target = e.target.dataset.index;
       this.setState({imgIndex: target})
     }

@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      urls: []
+      urls: [],
     }
     this.getImageUrls = this.getImageUrls.bind(this);
   }
@@ -26,12 +26,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className='carousel-container'>
-          <Modal />
-          <ImageCarousel urls={this.state.urls}/>
-        </div>
-      </div>
+      <React.Fragment>
+          <Modal urls={this.state.urls}/>
+      </React.Fragment>
     )
   }
 }
