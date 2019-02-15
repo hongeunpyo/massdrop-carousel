@@ -10,7 +10,6 @@ class ImageCarousel extends React.Component {
     }
     this.mapCarouselItem = this.mapCarouselItem.bind(this);
     this.renderCaptionImages = this.renderCaptionImages.bind(this);
-    // this.handleClick = this.handleClick.bind(this);
     this.handleSlides = this.handleSlides.bind(this);
   }
 
@@ -53,24 +52,29 @@ class ImageCarousel extends React.Component {
   }
 
   handleSlides(e) {
-    var index = this.state.imgIndex
+    var index = parseInt(this.state.imgIndex)
     var arrLength = this.state.storage.length
     if(e.target.className === 'prev' || e.keyCode === 37) {
       if (index === 0) {
         this.setState({imgIndex: arrLength - 1})
+        document.getElementsByClassName('caption-image-container')[0].style.transform = `translate(${(arrLength - 1) * -120}px, 0)`;
       } else {
-        this.setState({imgIndex: parseInt(index) - 1})
+        this.setState({imgIndex: index - 1})
+        document.getElementsByClassName('caption-image-container')[0].style.transform = `translate(${(index - 1) * -120}px, 0)`;
       }
     } else if (e.target.className === 'next' || e.keyCode === 39) {
       if (index === (arrLength - 1)) {
         this.setState({imgIndex: 0})
+        document.getElementsByClassName('caption-image-container')[0].style.transform = `translate(0, 0)`;
       } else {
-        this.setState({imgIndex: parseInt(index) + 1})
+        this.setState({imgIndex: index + 1})
+        document.getElementsByClassName('caption-image-container')[0].style.transform = `translate(${(index + 1) * -120}px, 0)`;
       }
     } else if (e.target.dataset.index) {
-      console.log(e.target.dataset.index);
       var target = e.target.dataset.index;
-      this.setState({imgIndex: target})
+      this.setState({imgIndex: target});
+      var x = (target * -120)
+      document.getElementsByClassName('caption-image-container')[0].style.transform = `translate(${x}px, 0)`;
     }
   }
 
