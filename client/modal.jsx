@@ -4,13 +4,16 @@ import ImageCarousel from "./carousel.jsx";
 class Modal extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      portalIndex: 0
+    };
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.urls !== prevProps.urls) {
       this.imgRender();
     }
-  }
+  }    
 
   imgRender() {
     return (
@@ -38,6 +41,11 @@ class Modal extends React.Component {
         modal.style.display = "none";
       }
     };
+    window.onkeydown = function(event) {
+      if (event.keyCode === 27) {
+        modal.style.display = "none";
+      }
+    };
   }
 
   render() {
@@ -48,7 +56,7 @@ class Modal extends React.Component {
           <div className="modal-content">
             <span className="close">&times;</span>
             <div className='carousel-container'>
-              <ImageCarousel urls={this.props.urls}/>
+              <ImageCarousel urls={this.props.urls} portalIndex = {this.state.portalIndex}/>
             </div>
           </div>
         </div>

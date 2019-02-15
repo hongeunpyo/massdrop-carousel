@@ -40,9 +40,7 @@ class ImageCarousel extends React.Component {
     var storage = [];
     for (var i = 0; i < this.props.urls.length; i++) {
       var slide = (
-        <div className="image-slide">
           <img className="image" data-index={i} src={this.props.urls[i].img_url}/>
-        </div>
       )
       storage.push(slide);
     }
@@ -57,24 +55,33 @@ class ImageCarousel extends React.Component {
     if(e.target.className === 'prev' || e.keyCode === 37) {
       if (index === 0) {
         this.setState({imgIndex: arrLength - 1})
+        document.getElementsByClassName('image-slide')[0].style.transform = `translate(${(arrLength - 1) * -1200}px, 0)`;
         document.getElementsByClassName('caption-image-container')[0].style.transform = `translate(${(arrLength - 1) * -120}px, 0)`;
       } else {
         this.setState({imgIndex: index - 1})
+        document.getElementsByClassName('image-slide')[0].style.transform = `translate(${(index - 1) * -1200}px, 0)`;
         document.getElementsByClassName('caption-image-container')[0].style.transform = `translate(${(index - 1) * -120}px, 0)`;
       }
     } else if (e.target.className === 'next' || e.keyCode === 39) {
       if (index === (arrLength - 1)) {
         this.setState({imgIndex: 0})
+        document.getElementsByClassName('image-slide')[0].style.transform = `translate(0, 0)`;
         document.getElementsByClassName('caption-image-container')[0].style.transform = `translate(0, 0)`;
       } else {
         this.setState({imgIndex: index + 1})
+        document.getElementsByClassName('image-slide')[0].style.transform = `translate(${(index + 1) * -1200}px, 0)`;
         document.getElementsByClassName('caption-image-container')[0].style.transform = `translate(${(index + 1) * -120}px, 0)`;
       }
     } else if (e.target.dataset.index) {
       var target = e.target.dataset.index;
       this.setState({imgIndex: target});
       var x = (target * -120)
+      document.getElementsByClassName('image-slide')[0].style.transform = `translate(${target * -1200}px, 0)`;
       document.getElementsByClassName('caption-image-container')[0].style.transform = `translate(${x}px, 0)`;
+    } else {
+      this.setState({imgIndex: this.props.portalIndex})
+      document.getElementsByClassName('image-slide')[0].style.transform = `translate(${(this.props.portalIndex) * -1200}px, 0)`;
+      document.getElementsByClassName('caption-image-container')[0].style.transform = `translate(${(this.props.portalIndex) * -120}px, 0)`;
     }
   }
 
@@ -82,7 +89,11 @@ class ImageCarousel extends React.Component {
     var index = parseInt(this.state.imgIndex) + 1
     return (
       <React.Fragment>
-        {this.props.urls.length !== 0 ? this.state.storage[this.state.imgIndex] : "Please wait.."}
+        <div className="image-container">
+          <div className="image-slide">
+            {this.props.urls.length !== 0 ? this.state.storage : "Please wait.."}
+          </div>
+        </div>
         <span className="image-number">{index} of {this.state.storage.length}</span>
         <div className="caption-image-container">
             {this.state.captionImages}

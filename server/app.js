@@ -22,4 +22,14 @@ app.get('/api/item/:item_id/', function (req, res) {
   })
 })
 
+app.get('/api/info/:item_id/', function (req, res) {
+  var {item_id} = req.params;
+  db.all('SELECT isMassdropMade FROM item WHERE item_id=?', item_id, function(err, data) {
+    if (err) {
+      console.log(err);
+    }
+    res.send(data);
+  })
+})
+
 module.exports = app;
