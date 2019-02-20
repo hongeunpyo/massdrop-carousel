@@ -9,6 +9,11 @@
     "react-dev": "webpack -d --watch",
     "jest": "jest"
   },
+  "jest": {
+    "setupFiles": [
+      "./enzyme.config.js"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hongeunpyo/massdrop-carousel.git"
@@ -32,6 +37,7 @@
     "react": "^16.7.0",
     "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.7.0",
+    "sinon": "^7.2.4",
     "sqlite3": "^4.0.6"
   },
   "devDependencies": {
@@ -39,8 +45,12 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.9.1",
     "jest": "^24.1.0",
+    "react-test-renderer": "^16.8.2",
     "superagent": "^4.1.0",
     "supertest": "^3.4.2",
     "webpack": "^4.29.1",

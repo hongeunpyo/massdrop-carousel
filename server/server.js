@@ -1,5 +1,5 @@
 const app = require('./app.js')
 
-app.listen(3001, () => console.log('server is listening on port 3001'))
+app.listen(3007, () => console.log('server is listening on port 3007'))
 
 module.exports = app;
