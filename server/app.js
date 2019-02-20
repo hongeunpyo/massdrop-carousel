@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
 
 var db = new sqlite3.Database('./db/carousel.db');
@@ -30,6 +31,11 @@ app.get('/api/info/:item_id/', function (req, res) {
     }
     res.send(data);
   })
+})
+
+app.get('*', (req, res) => {
+  //send a response that includes html
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 })
 
 module.exports = app;

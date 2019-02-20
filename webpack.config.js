@@ -8,8 +8,7 @@ const config = {
     filename: 'bundle.js'
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js|jsx)$/,
         include: path.join(__dirname, 'client/'),
         exclude: /node_modules/,
@@ -17,8 +16,24 @@ const config = {
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react']
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ],
+        exclude: /\.module\.css$/
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+        ],
+        include: /\.module\.css$/
       }
-    ],
+    ]
 
   },
   resolve: {
