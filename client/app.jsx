@@ -23,14 +23,16 @@ class App extends React.Component {
   getImageUrls() {
     console.log(window.location)
 
-    axios.get(`http://ec2-18-219-151-193.us-east-2.compute.amazonaws.com:3007/api/item/${this.state.path}/`)
+    // axios.get(`http://ec2-18-219-151-193.us-east-2.compute.amazonaws.com:3007/api/item/${this.state.path}/`)
+    axios.get(`http://localhost:3007/api/item/${this.state.path}/`)
       .then((response) => {
         this.setState({ urls: response.data })
       })
   }
 
   getItemInfo() {
-    axios.get(`http://ec2-18-219-151-193.us-east-2.compute.amazonaws.com:3007/api/info/${this.state.path}/`)
+    // axios.get(`http://ec2-18-219-151-193.us-east-2.compute.amazonaws.com:3007/api/info/${this.state.path}/`)
+    axios.get(`http://localhost:3007/api/info/${this.state.path}/`)
       .then((response) => {
         this.setState({ isMassdropMade: !!response.data[0].isMassdropMade})
       });
