@@ -17,19 +17,21 @@ class Modal extends React.Component {
 
   imgRender() {
     return (
-    <div className="portal-container" onClick={this.modalHandler} id="myBtn" data-index={0}>
-      <div className="search-icon">
-        <i className="fa fa-search"></i>
+      <div className="portal">
+        <div className="portal-container" onClick={this.modalHandler} id="myBtn" data-index={0}>
+          <div className="search-icon">
+            <span className="fa fa-search"></span>
+          </div>
+          <img className="modal-portal" src={this.props.urls[0].img_url}/>
+        </div>
       </div>
-      <img className="modal-portal" src={this.props.urls[0].img_url}/>
-    </div>
     );
   }
 
   modalHandler() {
     var modal = document.getElementById("myModal");
     var btn = document.getElementById("myBtn");
-    var span = document.getElementsByClassName("close")[0];
+    var span = document.getElementsByClassName("close_button")[0];
     btn.onclick = function() {
       modal.style.display = "block";
     };
@@ -52,9 +54,9 @@ class Modal extends React.Component {
     return (
       <React.Fragment>
         {this.props.urls.length !== 0 ? this.imgRender() : "Please wait.."}
-        <div id="myModal" className="modal">
+        <div id="myModal" className="carousel_modal_container">
           <div className="modal-content">
-            <span className="close">&times;</span>
+            <span className="close_button">&times;</span>
             <div className='carousel-container'>
               <ImageCarousel urls={this.props.urls} portalIndex = {this.state.portalIndex}/>
             </div>
