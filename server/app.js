@@ -10,7 +10,6 @@ var app = express();
 
 app.use(cors());
 app.use(morgan('dev'));
-// app.use(bodyparser());
 app.use(express.static('public'))
 
 app.get('/api/item/:item_id/', function (req, res) {
