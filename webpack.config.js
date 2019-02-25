@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+var CompressionPlugin = require('compression-webpack-plugin');
 
 const config = {
   entry: path.join(__dirname, '/client/index.jsx'),
@@ -36,6 +37,7 @@ const config = {
     ]
 
   },
+  
   resolve: {
     extensions: [
       '.js',
@@ -46,6 +48,25 @@ const config = {
   // devServer: {
   //   contentBase: './dist'
   // }
+  plugins: [
+    new webpack.DefinePlugin({ 
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8
+    })
+  ]
 }
+
+
 
 module.exports = config;

@@ -50,6 +50,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
+    "compression-webpack-plugin": "^2.0.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.9.1",
     "jest": "^24.1.0",

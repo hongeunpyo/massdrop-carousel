@@ -33,6 +33,12 @@ app.get('/api/info/:item_id/', function (req, res) {
   })
 })
 
+app.get('*.js', function (req, res, next) {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
+
 app.get('*', (req, res) => {
   //send a response that includes html
   res.sendFile(path.join(__dirname, '../public/index.html'));
