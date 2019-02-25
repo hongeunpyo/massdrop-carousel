@@ -12,6 +12,12 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.static('public'))
 
+app.get('*.js', function (req, res, next) {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
+
 app.get('/api/item/:item_id/', function (req, res) {
   var {item_id} = req.params;
   db.all('SELECT img_url FROM images WHERE item_id=?', item_id, function(err, data) {
@@ -31,12 +37,6 @@ app.get('/api/info/:item_id/', function (req, res) {
     res.send(data);
   })
 })
-
-app.get('*.js', function (req, res, next) {
-  req.url = req.url + '.gz';
-  res.set('Content-Encoding', 'gzip');
-  next();
-});
 
 app.get('*', (req, res) => {
   //send a response that includes html
