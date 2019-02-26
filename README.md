@@ -3,7 +3,9 @@ Carousel implementation imitating Massdrop's carousel feature on item details pa
 
 ![component-screen-capture](documentation/image-carousel-demo.gif)
 
-Massdrop-carousel is a replication of the image carousel component of Massdrop's item details page. This component is built as a fullstack application utilizing Express and SQL to serve data to the front-end component made using React.
+Massdrop-carousel is an implementation of the image carousel component of Massdrop's item details page using raw HTML and CSS. This component is built as a fullstack application utilizing Express and SQL to serve data to the front-end component made using React.
+
+## Related Projects
 
 ## Dependencies
 - [React](https://reactjs.org/docs/getting-started.html) front-end framework
@@ -25,3 +27,4 @@ node db/dbSeeder.js
 # Run the server locally
 node server/server.js
 ```
+## Performance Optimzations
