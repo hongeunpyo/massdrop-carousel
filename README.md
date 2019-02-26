@@ -1,7 +1,7 @@
 # massdrop-carousel
 Carousel implementation imitating Massdrop's carousel feature on item details page
 
-![component-screen-capture](documenation/image-carousel-demo.gif)
+![component-screen-capture](documentation/image-carousel-demo.gif)
 
 Massdrop-carousel is a replication of the image carousel component of Massdrop's item details page. This component is built as a fullstack application utilizing Express and SQL to serve data to the front-end component made using React.
 
