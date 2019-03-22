@@ -9,16 +9,16 @@ Massdrop-carousel is an implementation of the image carousel component of Massdr
 **massdrop-main-content is a static component to host the following components includng massdrop-carousel**
 
 
-[massdrop-main-content](https://github.com/hrnyc20-agrabah/massdrop-main-content) Author: me
+[massdrop-main-content](https://github.com/hrnyc20-agrabah/massdrop-main-content) // Author: me
 
 
 **massdrop-carousel was developed along with two other developers in charge of different components**
 
 
-[massdrop-reviews](https://github.com/hrnyc20-agrabah/massdrop-ratings) Author: [bradleymorgan05](https://github.com/bradleymorgan05)
+[massdrop-reviews](https://github.com/hrnyc20-agrabah/massdrop-ratings) // Author: [bradleymorgan05](https://github.com/bradleymorgan05)
 
 
-[massdrop-discussions](https://github.com/hrnyc20-agrabah/massdrop-discussion) Author: [junjo255](https://github.com/junjo255)
+[massdrop-discussions](https://github.com/hrnyc20-agrabah/massdrop-discussion) // Author: [junjo255](https://github.com/junjo255)
 
 
 ## Dependencies
