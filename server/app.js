@@ -14,7 +14,7 @@ app.use(cors());
 app.use(morgan('dev'));
 
 app.get('*.js', function (req, res, next) {
-  console.log('js requested')
+  console.log('js requested');
   req.url = req.url + '.gz';
   res.set('Content-Encoding', 'gzip');
   res.set('Content-Type', 'text/javascript');
