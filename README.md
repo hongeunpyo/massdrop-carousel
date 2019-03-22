@@ -28,3 +28,11 @@ node db/dbSeeder.js
 node server/server.js
 ```
 ## Performance Optimzations
+Performance before optimization on 3g network:
+![component-screen-capture](documentation/performance-before-optimization-3g.png)
+Performance after optimization on 3g network:
+![component-screen-capture](documentation/performance-after-optimization-3g.png)
+Performance before optimization without throttling:
+![component-screen-capture](documentation/performance-before-optimization-none.png)
+Performance after optimization without throttling:
+![component-screen-capture](documentation/performance-after-optimization-3g.png)
